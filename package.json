@@ -1,0 +1,27 @@
+{
+  "name": "lojic",
+  "version": "1.0.1",
+  "description": "reactively observe changes to data acquired via an added/changed/remove interface.",
+  "main": "/dst/observer.js",
+  "scripts": {
+    "test": "npm run compile-src && npm run compile-test && mocha test/dst/test.js --compilers js:babel-core/register",
+    "compile-src": "babel src --presets babel-preset-es2015 --plugins transform-object-rest-spread --out-dir dst",
+    "compile-test": "babel test/src --presets babel-preset-es2015 --plugins transform-object-rest-spread --out-dir test/dst"
+  },
+  "author": "Jay Patel <jay@pitel.co> (http://pitel.co)",
+  "license": "MIT",
+  "dependencies": {
+    "docsort": "^1.0.1",
+    "reactive-var": "^1.0.7",
+    "trackr": "^2.0.2",
+    "typetastic": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
