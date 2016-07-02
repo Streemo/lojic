@@ -1,14 +1,16 @@
 # lojic
 
-Problem: Where is real-time data stored on the client? Did the data change? Do I need to re-render? Where do I need to re-render?
+**Problem**: Where is real-time data stored on the client? Did the data change? Do I need to re-render? Where do I need to re-render?
 
-Solution: Document versioning. Instead of comparing old data to new data N times, we should compare them once, and then store the result in a calculated version number. Every piece of data should have a unique monotonically non-decreasing integer associated with it. This way, a rendering engine could simply perform this check as it works down the tree, instead of comparing the data.
+**Solution**: Document versioning. Instead of comparing old data to new data N times, we should compare them once, and then store the result in a calculated version number. Every piece of data should have a unique monotonically non-decreasing integer associated with it. This way, a rendering engine could simply perform this check as it works down the tree, instead of comparing the data.
 
 ```
 curInt > prevInt ? re-render : pass;
 ```
 
-Approach: Assume the data is (E)JSON. Store the data in a tree using the collection-document paradigm, as in MongoDB. The root node holds the groups (collections). The group nodes hold the documents, etc. Additional structure may be necessary for keeping track of versions. We should be able to merge, resolve, and observe arbitrary branches on the tree.
+**Approach**: Assume the data is (E)JSON. Store the data in a tree using the collection-document paradigm, as in MongoDB. The root node holds the groups (collections). The group nodes hold the documents, etc. Additional structure may be necessary for keeping track of versions. Keep it simple. Expose three methods: we should be able to `merge`, `resolve`, and `observe` arbitrary branches on the tree. Leverage `Tracker`, `ReactiveVar`, by Meteor for the `observe` implementation. 
+
+**What you can do**: Src has bugs, there are some tests which are passing. Not super readable. Some comments at the bottom of the src mention todos. Still need to implement queueing, atomicity, batched updates, etc.
 
 ## We should be able to query tree paths, if the data exists:
 ```
