@@ -52,7 +52,7 @@ This is read by the traverser as follows:
 6. Value at `documentField2` satisfies <condition2> ? store value in result : exit.
 7. Return the result.
 
-## Query Rules for the "<conditions>".
+## Query Rules for the "conditions".
 1. A value of `undefined` should tell the traverser that there is no condition, and we want that field.
 2. A value of `function` should tell the traverser to evaluate the function with the data value.
   true ? return value : object ? return object : exit.
