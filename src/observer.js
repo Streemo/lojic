@@ -55,11 +55,11 @@ export default class Observer {
     return p.c[k] = p.c[k] || {v: new ReactiveVar(0),c:{},p:p};
   }
   _canonicalize(q){
-    let {sort, id, group, query} = {...q};
+    let {sort, id, group, query} = q;
     if (!group) return null;
     let o = this._observers;
-      o = this._node(group,o);
-      o = this._node('id',o);
+        o = this._node(group,o);
+        o = this._node('id',o);
     let n = this._collections;
       n = this._node(group,n);
     let ids = toArray(id) || Object.keys(n.c);

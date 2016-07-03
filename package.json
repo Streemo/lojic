@@ -1,6 +1,6 @@
 {
   "name": "lojic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "reactively observe changes to data acquired via an added/changed/remove interface.",
   "main": "/dst/observer.js",
   "scripts": {
