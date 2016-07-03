@@ -2,7 +2,7 @@
 
 **Problem**: Where is real-time data stored on the client? Did the data change? Do I need to re-render? Where do I need to re-render?
 
-**Solution**: Document versioning. Instead of comparing old data to new data N times, we should compare them once, and then store the result in a calculated version number. Every piece of data should have a unique monotonically non-decreasing integer associated with it. This way, a rendering engine could simply perform this check as it works down the tree, instead of comparing the data.
+**Solution**: Document versioning. Instead of comparing old data to new data N times, we should compare them once, and then update version numbers up the tree. Every piece of data should have a monotonically non-decreasing integer associated with it. This way, a rendering engine could simply perform this check as it works down the tree, instead of comparing the data.
 
 ```
 curInt > prevInt ? re-render : pass;
