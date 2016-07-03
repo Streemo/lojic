@@ -94,7 +94,7 @@ The result should look exactly like the query, but with the values "filled in", 
 Had the score of the meal document `"someDocId"` been larger than 5, say, 5.18333, then the result would have been `null`.
 
 ## Querying the entire collection, or a list of document `_id`s.
-```
+
 The above query only works if we know the id of the document *a priori*, and it should be fast since we know the starting key ahead of time. It's not clear how to generalize the query for cases where we don't know the document's `_id`, while keeping the same structure. One solution may be to specify something like this, and then canonicalize it into many structured queries:
 ```
 let query = {
